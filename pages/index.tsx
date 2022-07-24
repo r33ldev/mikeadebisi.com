@@ -47,7 +47,7 @@ const Home: NextPage = () => {
         <JumboWrapper>
           <JumboName>Michael E Adebisi</JumboName>
           <JumboText>
-            I'm a <span>Software Engineer</span>, who loves{' '}
+            I'm a <span>Software Engineer</span>, and loves{' '}
             <span>Developing</span> for the web, <span>Writing</span> and{' '}
             <span>Building Open Source </span> projects.
           </JumboText>
@@ -93,7 +93,7 @@ const Home: NextPage = () => {
             {PROJECTS.map((project, index) => (
               <Project
                 key={index}
-                onClick={() => window.open(project.url, '_blank')}
+                onClick={() => router.push(project.url)}
                 // onClick={() => router.push('/projects/' + project.name.toLocaleLowerCase().replace(/ /g, '-'))}
               >
                 <ProjectName>{project.name}</ProjectName>
