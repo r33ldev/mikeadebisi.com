@@ -7,24 +7,24 @@ import { OtherTextComponent } from '../src/components/text-components/TextCompon
 const Home: NextPage = () => {
   const ARTICLES = [
     {
-      date: 'September 19, 2021',
+      date: 'September 19, 2022',
       title: 'Renderless Components in Nextjs',
       extract:
         'How to create Next js components that are easy to customize by splitting presentation and behavior into separate components.',
       slug: '/renderless-components-in-nextjs',
     },
     {
-      date: 'September 19, 2021',
-      title: 'Renderless Components in Nextjs',
+      date: 'September 19, 2022',
+      title: 'Methods Are Affordances, Not Abilities',
       extract:
-        'How to create Next js components that are easy to customize by splitting presentation and behavior into separate components.',
+        'How thinking that “an object shouldn’t be able to save itself” exposes a fundamental misunderstanding of OOP, and how you should think instead.',
       slug: '/renderless-components-in-nextjs',
     },
     {
-      date: 'September 19, 2021',
-      title: 'Renderless Components in Nextjs',
+      date: 'September 19, 2022',
+      title: 'Refactoring Loops and Conditionals',
       extract:
-        'How to create Next js components that are easy to customize by splitting presentation and behavior into separate components.',
+        'Earlier this week, a developer asked the Rails subreddit to help refactor some code they had written for an interview.',
       slug: '/renderless-components-in-nextjs',
     },
   ];
@@ -93,7 +93,7 @@ const Home: NextPage = () => {
             {PROJECTS.map((project, index) => (
               <Project
                 key={index}
-                onClick={() => router.push(project.url)}
+                onClick={() => window.open(project.url, '_blank')}
                 // onClick={() => router.push('/projects/' + project.name.toLocaleLowerCase().replace(/ /g, '-'))}
               >
                 <ProjectName>{project.name}</ProjectName>
