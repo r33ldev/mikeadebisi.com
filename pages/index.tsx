@@ -47,8 +47,8 @@ const Home: NextPage = () => {
           <JumboName>Michael E Adebisi</JumboName>
           <JumboText>
             I am a <span>Software Engineer</span>, and loves
-            <span>Developing</span> for the web, <span>Writing</span> and
-            <span>Building Open Source </span> projects.
+            <span> Developing</span> for the web, <span> Writing</span> and
+            <span> Building Open Source </span> projects.
           </JumboText>
         </JumboWrapper>
         <ArticlesWrapper>
