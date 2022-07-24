@@ -47,20 +47,14 @@ const Home: NextPage = () => {
         <JumboWrapper>
           <JumboName>Michael E Adebisi</JumboName>
           <JumboText>
-            I'm a <span>Software Engineer</span>, and loves{' '}
-            <span>Developing</span> for the web, <span>Writing</span> and{' '}
+            I am a <span>Software Engineer</span>, and loves
+            <span>Developing</span> for the web, <span>Writing</span> and
             <span>Building Open Source </span> projects.
           </JumboText>
         </JumboWrapper>
         <ArticlesWrapper>
           <ArticleHeader>
-            <Title>
-              <OtherTextComponent
-                text={'Articles'}
-                size='1.6rem'
-                color='white'
-              />
-            </Title>
+            <Title>Articles</Title>
             <SectionButton onClick={() => router.push('/articles')}>
               View all articles
             </SectionButton>
@@ -79,30 +73,24 @@ const Home: NextPage = () => {
         </ArticlesWrapper>
         <ProjectsWrapper>
           <ProjectHeader>
-            <Title>
-              <OtherTextComponent
-                text={'Projects'}
-                size='1.6rem'
-                color='white'
-              />
-            </Title>
+            <Title>Projects</Title>
             <SectionButton onClick={() => router.push('/projects')}>
               View all projects
             </SectionButton>
-            </ProjectHeader>
-            {PROJECTS.map((project, index) => (
-              <Project
-                key={index}
-                onClick={() => router.push(project.url)}
-                // onClick={() => router.push('/projects/' + project.name.toLocaleLowerCase().replace(/ /g, '-'))}
-              >
-                <ProjectName>{project.name}</ProjectName>
-                <p>{project.description}</p>
-              </Project>
-            ))}
+          </ProjectHeader>
+          {PROJECTS.map((project, index) => (
+            <Project
+              key={index}
+              onClick={() => router.push(project.url)}
+              // onClick={() => router.push('/projects/' + project.name.toLocaleLowerCase().replace(/ /g, '-'))}
+            >
+              <ProjectName>{project.name}</ProjectName>
+              <p>{project.description}</p>
+            </Project>
+          ))}
         </ProjectsWrapper>
         <ContactWrapper>
-          <Contact  />
+          <Contact />
         </ContactWrapper>
       </HomeWrapper>
     </>
@@ -162,13 +150,17 @@ const ArticleHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  marginBottom: '1rem',
 }));
 const ProjectHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-})); 
-const Title = styled('div')(({ theme }) => ({}));
+  marginBottom: '1rem',
+}));
+const Title = styled('div')(({ theme }) => ({
+  fontSize: '1.3rem',
+}));
 const SectionButton = styled('div')(({ theme }) => ({
   border: '1px solid #2D3748',
   background: '#171923',
