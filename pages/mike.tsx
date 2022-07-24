@@ -8,7 +8,9 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { useRouter } from 'next/router';
-interface mikeProps {}
+interface mikeProps {
+  bg: string;
+}
 
 export const Mike: React.FC<mikeProps> = ({}) => {
   const [showEmail, setShowEmail] = React.useState(false);
@@ -68,7 +70,7 @@ export const Mike: React.FC<mikeProps> = ({}) => {
         <Email>
           <p>Email</p>
           <RevealButton onClick={() => setShowEmail(!showEmail)}>
-            reveal
+            {showEmail ? 'hide' : 'reveal'}
           </RevealButton>
         </Email>
         {showEmail && (
@@ -119,7 +121,8 @@ const SocialLinks = styled('div')(({ theme }) => ({
   display: 'flex',
   gap: '1rem',
 }));
-const SocialLink = styled('div')(({ theme, bg }) => ({
+
+const SocialLink = styled('div')<mikeProps>(({ theme, bg }) => ({
   display: 'flex',
   alignItems: 'center',
   border: '1px solid #2D3748',
