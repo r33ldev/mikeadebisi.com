@@ -1,15 +1,109 @@
 import { styled } from '@mui/system';
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
+import { useRouter } from 'next/router';
+import Contact from '../src/components/contact-component/Contact';
+import { OtherTextComponent } from '../src/components/text-components/TextComponent';
 
 const Home: NextPage = () => {
+  const ARTICLES = [
+    {
+      date: 'September 19, 2021',
+      title: 'Renderless Components in Nextjs',
+      extract:
+        'How to create Next js components that are easy to customize by splitting presentation and behavior into separate components.',
+      slug: '/renderless-components-in-nextjs',
+    },
+    {
+      date: 'September 19, 2021',
+      title: 'Renderless Components in Nextjs',
+      extract:
+        'How to create Next js components that are easy to customize by splitting presentation and behavior into separate components.',
+      slug: '/renderless-components-in-nextjs',
+    },
+    {
+      date: 'September 19, 2021',
+      title: 'Renderless Components in Nextjs',
+      extract:
+        'How to create Next js components that are easy to customize by splitting presentation and behavior into separate components.',
+      slug: '/renderless-components-in-nextjs',
+    },
+  ];
+  const PROJECTS = [
+    {
+      name: 'Love Meter',
+      description: 'Calculate how much your crush loves you',
+      url: 'https://calculate.lol',
+    },
+    {
+      name: 'Strimr',
+      description: 'Stream your favorite songs in one app freely',
+      url: 'https://super-devmike.github.io/strimr/',
+    },
+  ];
+  const router = useRouter();
   return (
     <>
       <HomeWrapper>
         <JumboWrapper>
           <JumboName>Michael E Adebisi</JumboName>
+          <JumboText>
+            I'm a <span>Software Engineer</span>, who loves{' '}
+            <span>Developing</span> for the web, <span>Writing</span> and{' '}
+            <span>Building Open Source </span> projects.
+          </JumboText>
         </JumboWrapper>
+        <ArticlesWrapper>
+          <ArticleHeader>
+            <Title>
+              <OtherTextComponent
+                text={'Articles'}
+                size='1.6rem'
+                color='white'
+              />
+            </Title>
+            <SectionButton onClick={() => router.push('/articles')}>
+              View all articles
+            </SectionButton>
+          </ArticleHeader>
+
+          {ARTICLES.map((article, index) => (
+            <Article
+              key={index}
+              onClick={() => router.push('/articles/' + article.slug)}
+            >
+              <ArticleDate>{article.date}</ArticleDate>
+              <ArticleTitle>{article.title}</ArticleTitle>
+              <ArticleExtract>{article.extract}</ArticleExtract>
+            </Article>
+          ))}
+        </ArticlesWrapper>
+        <ProjectsWrapper>
+          <ProjectHeader>
+            <Title>
+              <OtherTextComponent
+                text={'Projects'}
+                size='1.6rem'
+                color='white'
+              />
+            </Title>
+            <SectionButton onClick={() => router.push('/projects')}>
+              View all projects
+            </SectionButton>
+            </ProjectHeader>
+            {PROJECTS.map((project, index) => (
+              <Project
+                key={index}
+                onClick={() => router.push(project.url)}
+                // onClick={() => router.push('/projects/' + project.name.toLocaleLowerCase().replace(/ /g, '-'))}
+              >
+                <ProjectName>{project.name}</ProjectName>
+                <p>{project.description}</p>
+              </Project>
+            ))}
+        </ProjectsWrapper>
+        <ContactWrapper>
+          <Contact  />
+        </ContactWrapper>
       </HomeWrapper>
     </>
   );
@@ -17,18 +111,21 @@ const Home: NextPage = () => {
 
 const HomeWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
+  height: '100%',
+  background: '#000000',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  margin: '4rem 24% 0',
 }));
 
 const JumboWrapper = styled('div')(({ theme }) => ({
-  marginTop: '4rem',
+  textAlign: 'center',
 }));
 const JumboName = styled('div')(({ theme }) => ({
   // backgroundImage: 'linear-gradient(to right, #f6d365 0%, #fda085 100%)',
   fontSize: '4rem',
-  fontFamily:'Cabin',
+  fontFamily: 'Cabin',
   fontWeight: 'bold',
   background: '#4299e1',
   color: 'transparent',
@@ -47,5 +144,80 @@ const JumboName = styled('div')(({ theme }) => ({
       '-webkit-filter': 'hue-rotate(-360deg)',
     },
   },
+}));
+const JumboText = styled('div')(({ theme }) => ({
+  fontFamily: 'Cabin',
+  fontSize: '2rem',
+  color: '#718096',
+
+  span: {
+    color: '#CBD5E0',
+  },
+}));
+const ArticlesWrapper = styled('div')(({ theme }) => ({
+  width: '100%',
+  marginTop: '6rem',
+}));
+const ArticleHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+}));
+const ProjectHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+})); 
+const Title = styled('div')(({ theme }) => ({}));
+const SectionButton = styled('div')(({ theme }) => ({
+  border: '1px solid #2D3748',
+  background: '#171923',
+  padding: '0.5rem .5rem',
+  fontSize: '14px',
+  cursor: 'pointer',
+
+  '&:hover': {
+    background: '#2D3748',
+    color: '#CBD5E0',
+  },
+}));
+
+const Article = styled('div')(({ theme }) => ({
+  fontFamily: 'Cabin',
+  marginBottom: '2rem',
+  cursor: 'pointer',
+}));
+const ArticleTitle = styled('div')(({ theme }) => ({
+  fontSize: '1.6rem',
+  color: '#4299E1',
+}));
+const ArticleDate = styled('div')(({ theme }) => ({
+  fontSize: '14px',
+}));
+const ArticleExtract = styled('div')(({ theme }) => ({
+  fontSize: '1.2rem',
+}));
+
+const ProjectsWrapper = styled('div')(({ theme }) => ({
+  width: '100%',
+  marginTop: '6rem',
+}));
+
+const Project = styled('div')(({ theme }) => ({
+  padding: '1rem',
+  fontFamily: 'Cabin',
+  marginBottom: '2rem',
+  cursor: 'pointer',
+  background: '#171923',
+  border: '1px solid #2D3748',
+}));
+const ProjectName = styled('div')(({ theme }) => ({
+  fontSize: '1.4rem',
+  color: '#4299E1',
+}));
+
+const ContactWrapper = styled('div')(({ theme }) => ({
+  marginTop: '6rem',
+  width: '100%',
 }));
 export default Home;

@@ -7,16 +7,19 @@ export const UnknownPage: React.FC<{}> = () => {
     <div
       style={{
         display: 'flex',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
+        height: '100vh',
+        marginTop: '2rem',
+        fontFamily:'Cabin'
       }}
     >
       <div style={{ display: 'block', fontSize: '6rem' }}>🤷</div>
       <div style={{ fontSize: '2rem', marginBottom: '2rem' }}>
         How did you get here?
       </div>
-      <div>How about you go</div>
+      <div>How about you go - </div>
       <div
         style={{
           display: 'flex',

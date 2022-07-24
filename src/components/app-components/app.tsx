@@ -18,6 +18,7 @@ export const AppWrapper: React.FC<appProps> = ({ children }) => {
 
 const PageLayout = styled('div')(({}) => ({
   color: '#FFFFFF',
-  height: '100vh',
+  background: '#000000',
+  height: '100%',
 }));
 export default AppWrapper;

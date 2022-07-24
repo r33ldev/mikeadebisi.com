@@ -42,7 +42,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/components/text-components/TextComponent.jsx"  ],
   "exclude": [
     "node_modules"
   ]
