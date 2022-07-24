@@ -2,7 +2,6 @@ import { styled } from '@mui/system';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Contact from '../src/components/contact-component/Contact';
-import { OtherTextComponent } from '../src/components/text-components/TextComponent';
 
 const Home: NextPage = () => {
   const ARTICLES = [
