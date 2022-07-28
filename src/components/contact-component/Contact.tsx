@@ -70,6 +70,9 @@ const ContactForm = styled('div')(({ theme }) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    // [theme.breakpoints.down('md')]: {
+    //   width: '50%',
+    // },
     '& textarea': {
       marginTop: '1rem',
       width: '40rem',
@@ -84,6 +87,9 @@ const ContactForm = styled('div')(({ theme }) => ({
       padding: '0.5rem',
       fontSize: '1rem',
       resize: 'vertical',
+      [theme.breakpoints.down('md')]: {
+        width: '20rem',
+      },
       '&:focus': {
         outline: 'none',
         border: '1px solid #4299e1',
@@ -96,6 +102,9 @@ const ContactFormInput = styled('div')(({ theme }) => ({
   display: 'flex',
   gap: '1rem',
   marginTop: '1rem',
+  [theme.breakpoints.down('md')]: {
+    display:'block'
+  },
 }));
 const InputItem = styled('div')(({ theme }) => ({
   '& input': {

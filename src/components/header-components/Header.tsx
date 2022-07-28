@@ -38,16 +38,27 @@ const HeaderWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   padding: '1.5rem',
+  
+  [theme.breakpoints.down('sm')]: {
+    justifyContent: 'center',
+    textAlign:'center'
+  },
 }));
 const LogoWrapper = styled('div')(({ theme }) => ({
-    cursor: 'pointer',
+  cursor: 'pointer',
   '& img': {
     height: '60px',
   },
 }));
 const HeaderLinks = styled('div')(({ theme }) => ({
-    display: 'flex',
-    gap: '2.5rem',
+  display: 'flex',
+  gap: '2.5rem',
+  [theme.breakpoints.down('md')]: {
+    gap: '1rem',
+  },
+  [theme.breakpoints.down('sm')]: {
+    display:'none'
+  },
 }));
 const HeaderLink = styled('div')(({ theme }) => ({
     cursor: 'pointer',

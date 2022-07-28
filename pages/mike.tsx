@@ -20,7 +20,7 @@ export const Mike: React.FC<mikeProps> = ({}) => {
       <Head>
         <title>About me - Michael E Adebisi - Software Engineer</title>
       </Head>
-      <AboutWrapper>
+      <AboutWrapper> 
         <ImageAndName>
           <Image src={mike} alt='Michael Adebisi' height={100} width={100} />
           <NameText>
@@ -92,6 +92,14 @@ const AboutWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
+
+  [theme.breakpoints.down('lg')]: {
+    margin: '2rem 15% 0',
+  },
+  [theme.breakpoints.down('md')]: {
+    height:'100%'
+
+  },
 }));
 const ImageAndName = styled('div')(({ theme }) => ({
   fontFamily: 'Cabin',
@@ -120,6 +128,11 @@ const SocialLinks = styled('div')(({ theme }) => ({
   marginTop: '2rem',
   display: 'flex',
   gap: '1rem',
+  [theme.breakpoints.down('sm')]: {
+    display: 'flex',
+    flexDirection:'column',
+    gap: '1rem',
+  },
 }));
 
 const SocialLink = styled('div')<mikeProps>(({ theme, bg }) => ({

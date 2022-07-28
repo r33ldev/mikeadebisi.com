@@ -104,6 +104,10 @@ const HomeWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   margin: '4rem 24% 0',
+
+  [theme.breakpoints.down('lg')]: {
+    margin: '4rem 15% 0'
+  }
 }));
 
 const JumboWrapper = styled('div')(({ theme }) => ({
@@ -131,11 +135,17 @@ const JumboName = styled('div')(({ theme }) => ({
       '-webkit-filter': 'hue-rotate(-360deg)',
     },
   },
+  [theme.breakpoints.down('md')]: {
+   fontSize:'3rem'
+  },
 }));
 const JumboText = styled('div')(({ theme }) => ({
   fontFamily: 'Cabin',
   fontSize: '2rem',
   color: '#718096',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '1rem',
+  },
 
   span: {
     color: '#CBD5E0',
@@ -181,12 +191,19 @@ const Article = styled('div')(({ theme }) => ({
 const ArticleTitle = styled('div')(({ theme }) => ({
   fontSize: '1.6rem',
   color: '#4299E1',
+  [theme.breakpoints.down('sm')]: {
+    fontSize:'1.2rem'
+  },
 }));
 const ArticleDate = styled('div')(({ theme }) => ({
   fontSize: '14px',
 }));
 const ArticleExtract = styled('div')(({ theme }) => ({
   fontSize: '1.2rem',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '1rem',
+    
+  },
 }));
 
 const ProjectsWrapper = styled('div')(({ theme }) => ({
@@ -210,5 +227,6 @@ const ProjectName = styled('div')(({ theme }) => ({
 const ContactWrapper = styled('div')(({ theme }) => ({
   marginTop: '6rem',
   width: '100%',
+  
 }));
 export default Home;
