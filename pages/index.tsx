@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import Contact from '../src/components/contact-component/Contact';
 
+
 const Home: NextPage = () => {
   const ARTICLES = [
     {
@@ -106,8 +107,8 @@ const HomeWrapper = styled('div')(({ theme }) => ({
   margin: '4rem 24% 0',
 
   [theme.breakpoints.down('lg')]: {
-    margin: '4rem 15% 0'
-  }
+    margin: '4rem 15% 0',
+  },
 }));
 
 const JumboWrapper = styled('div')(({ theme }) => ({
@@ -136,7 +137,7 @@ const JumboName = styled('div')(({ theme }) => ({
     },
   },
   [theme.breakpoints.down('md')]: {
-   fontSize:'3rem'
+    fontSize: '3rem',
   },
 }));
 const JumboText = styled('div')(({ theme }) => ({
@@ -192,7 +193,7 @@ const ArticleTitle = styled('div')(({ theme }) => ({
   fontSize: '1.6rem',
   color: '#4299E1',
   [theme.breakpoints.down('sm')]: {
-    fontSize:'1.2rem'
+    fontSize: '1.2rem',
   },
 }));
 const ArticleDate = styled('div')(({ theme }) => ({
@@ -202,7 +203,6 @@ const ArticleExtract = styled('div')(({ theme }) => ({
   fontSize: '1.2rem',
   [theme.breakpoints.down('sm')]: {
     fontSize: '1rem',
-    
   },
 }));
 
@@ -227,6 +227,5 @@ const ProjectName = styled('div')(({ theme }) => ({
 const ContactWrapper = styled('div')(({ theme }) => ({
   marginTop: '6rem',
   width: '100%',
-  
 }));
 export default Home;

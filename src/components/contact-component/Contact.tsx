@@ -1,12 +1,33 @@
+import { useMutation } from '@apollo/client';
 import { styled } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
+import { NEW_CONTACT } from '../../../graphql/mutations/mutations';
+import { sleep } from '../../utils/utility';
 
 interface ContactProps {}
 
 export const Contact: React.FC<ContactProps> = ({}) => {
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const [newContact, { error }] = useMutation(NEW_CONTACT);
+  const [input, setInput] = useState({ name: '', email: '', message: '' });
+  const [contactData, setContactData] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log('submit');
+    setSubmitted(true);
+    const { data } = await newContact({
+      variables: {
+        input,
+      },
+    });
+    
+    await sleep(4000);
+    setSubmitted(false);
+    setInput({ name: '', email: '', message: '' });
+    if (data) setContactData(data);
+    await sleep(4000);
+    setContactData({});
+
   }
   return (
     <ContactWrapper>
@@ -18,10 +39,12 @@ export const Contact: React.FC<ContactProps> = ({}) => {
               {/* <label htmlFor='name'>First Name</label> */}
               <input
                 type='text'
-                name='fname'
-                id='fname'
+                name='name'
+                id='name'
                 required
                 placeholder='Your first name'
+                value={input.name}
+                onChange={(e) => setInput({ ...input, name: e.target.value })}
               />
             </InputItem>
             <InputItem>
@@ -32,6 +55,8 @@ export const Contact: React.FC<ContactProps> = ({}) => {
                 id='email'
                 required
                 placeholder='Your email address'
+                value={input.email}
+                onChange={(e) => setInput({ ...input, email: e.target.value })}
               />
             </InputItem>
           </ContactFormInput>
@@ -43,10 +68,17 @@ export const Contact: React.FC<ContactProps> = ({}) => {
             cols={30}
             rows={10}
             required
-            placeholder='Your message here'
+            placeholder='Your thoughts here'
+            value={input.message}
+            onChange={(e) => setInput({ ...input, message: e.target.value })}
           />
           {/* </InputItem> */}
-          <Button>Send</Button>
+          {Object.keys(contactData).length != 0 && (
+            <div style={{ marginTop: '1rem' }}>
+              Your message is successfully sent, pls check your email
+            </div>
+          )}
+          <Button>{submitted ? 'sending...' : ' Send'}</Button>
         </form>
       </ContactForm>
     </ContactWrapper>
@@ -103,7 +135,7 @@ const ContactFormInput = styled('div')(({ theme }) => ({
   gap: '1rem',
   marginTop: '1rem',
   [theme.breakpoints.down('md')]: {
-    display:'block'
+    display: 'block',
   },
 }));
 const InputItem = styled('div')(({ theme }) => ({
