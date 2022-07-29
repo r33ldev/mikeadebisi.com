@@ -78,7 +78,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
               Your message is successfully sent, pls check your email
             </div>
           )}
-          <Button>{submitted ? 'sending...' : ' Send'}</Button>
+          <Button>{submitted ? 'sending ...' : ' Send'}</Button>
         </form>
       </ContactForm>
     </ContactWrapper>
@@ -162,7 +162,7 @@ const Button = styled('button')(({ theme }) => ({
   border: '1px solid #2D3748',
   background: '#171923',
   padding: '0.5rem 2rem',
-  fontSize: '1.3rem',
+  fontSize: '1.1rem',
   cursor: 'pointer',
 
   '&:hover': {
