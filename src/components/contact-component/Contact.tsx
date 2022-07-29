@@ -15,11 +15,14 @@ export const Contact: React.FC<ContactProps> = ({}) => {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitted(true);
+    console.log('submitting');
     const { data } = await newContact({
       variables: {
         input,
       },
     });
+
+    console.log('data: ', data)
     
     await sleep(4000);
     setSubmitted(false);
@@ -27,6 +30,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
     if (data) setContactData(data);
     await sleep(4000);
     setContactData({});
+    console.log('done');
 
   }
   return (
