@@ -17,7 +17,10 @@ export default function MyApp(props: AppProps) {
       <ApolloProvider client={client}>
         <Provider store={store}>
           <Head>
-            <title>Michael E Adebisi - Software Engineer, lover of everything exceptional</title>
+            <title>
+              Michael E Adebisi - Software Engineer, Lover of Everything
+              Exceptional
+            </title>
             <link href='/favicon.ico' rel='icon' />
             <meta
               content='minimum-scale=1, initial-scale=1, width=device-width'
