@@ -7,7 +7,7 @@ import { sleep } from '../../utils/utility';
 interface ContactProps {}
 
 export const Contact: React.FC<ContactProps> = ({}) => {
-  const [newContact, { error }] = useMutation(NEW_CONTACT);
+  const [newContact] = useMutation(NEW_CONTACT);
   const [input, setInput] = useState({ name: '', email: '', message: '' });
   const [contactData, setContactData] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -15,22 +15,17 @@ export const Contact: React.FC<ContactProps> = ({}) => {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitted(true);
-    console.log('submitting');
-    console.log('env: ', process.env.NODE_ENV)
-    console.log('url: ', process.env.NEXT_PUBLIC_SERVER_URL)
     const { data } = await newContact({
       variables: {
         input,
       },
     });
-
-    console.log('data: ', data)
     
-    await sleep(4000);
+    await sleep(2000);
     setSubmitted(false);
     setInput({ name: '', email: '', message: '' });
     if (data) setContactData(data);
-    await sleep(4000);
+    await sleep(10000);
     setContactData({});
     console.log('done');
 
