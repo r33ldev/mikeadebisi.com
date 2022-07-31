@@ -16,6 +16,8 @@ export const Contact: React.FC<ContactProps> = ({}) => {
     e.preventDefault();
     setSubmitted(true);
     console.log('submitting');
+    console.log('env: ', process.env.NODE_ENV)
+    console.log('url: ', process.env.NEXT_PUBLIC_SERVER_URL)
     const { data } = await newContact({
       variables: {
         input,
