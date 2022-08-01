@@ -9,25 +9,25 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ title }) => {
     const router = useRouter()
-  const LINKS = [
-    { link: 'Projects', label: 'Projects', url: '/projects' },
-    { link: 'Articles', label: 'Articles', url: '/articles' },
-    { link: 'Guides', label: 'Guides', url: '/guides' },
-    { link: 'About', label: 'About', url: '/mike' },
-    { link: 'Uses', label: 'Uses', url: '/uses' },
-  ];
+  // const LINKS = [
+    // { link: 'Projects', label: 'Projects', url: '/projects' },
+    // { link: 'Articles', label: 'Articles', url: '/articles' },
+    // { link: 'Guides', label: 'Guides', url: '/guides' },
+    // { link: 'About', label: 'About', url: '/mike' },
+    // { link: 'Uses', label: 'Uses', url: '/uses' },
+  // ];
   return (
     <HeaderWrapper>
       <LogoWrapper onClick={() => router.push('/')}>
         <Image src={logo} alt='mikeadebisi.com' height={40} width={40} />
       </LogoWrapper>
-      <HeaderLinks>
-        {LINKS.map((link) => (
+      {/* <HeaderLinks> */}
+        {/* {LINKS.map((link) => (
           <HeaderLink key={link.label} onClick={() => router.push(link.url)}>
             {link.label}
           </HeaderLink>
-        ))}
-      </HeaderLinks>
+        ))} */}
+      {/* </HeaderLinks> */}
     </HeaderWrapper>
   );
 };
@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
 const HeaderWrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   borderTop: '5px solid #4299E1',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-end',
   alignItems: 'center',
   padding: '1.5rem',
   

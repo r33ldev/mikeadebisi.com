@@ -20,7 +20,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
         input,
       },
     });
-    
+
     await sleep(2000);
     setSubmitted(false);
     setInput({ name: '', email: '', message: '' });
@@ -28,11 +28,10 @@ export const Contact: React.FC<ContactProps> = ({}) => {
     await sleep(10000);
     setContactData({});
     console.log('done');
-
   }
   return (
     <ContactWrapper>
-      <ContactHeader>Reach me</ContactHeader>
+      <ContactHeader>Talk to me</ContactHeader>
       <ContactForm>
         <form onSubmit={(e) => handleSubmit(e)}>
           <ContactFormInput>
@@ -86,13 +85,13 @@ export const Contact: React.FC<ContactProps> = ({}) => {
   );
 };
 const ContactWrapper = styled('div')(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'column',
+  // display: 'flex',
+  // justifyContent: 'center',
+  // alignItems: 'center',
+  // flexDirection: 'column',
 }));
 const ContactHeader = styled('div')(({ theme }) => ({
-  color: '#FFFFFF',
+  color: '#000000',
   fontSize: '2rem',
   fontFamily: 'Cabin',
 }));
@@ -101,19 +100,20 @@ const ContactForm = styled('div')(({ theme }) => ({
     fontFamily: 'Cabin',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+
     // [theme.breakpoints.down('md')]: {
     //   width: '50%',
     // },
     '& textarea': {
       marginTop: '1rem',
-      width: '40rem',
+      width: '41rem',
       height: '10rem',
       minHeight: '10rem',
       transition: 'all .2s',
       border: '1px solid #2D3748',
-
+      color: '#000000',
       background: 'transparent',
       borderRadius: '0.1rem',
       fontFamily: 'Cabin',
@@ -149,6 +149,7 @@ const InputItem = styled('div')(({ theme }) => ({
     borderRadius: '0.1rem',
     fontSize: '1rem',
     padding: '0.5rem',
+    color: '#000000',
 
     '&:focus': {
       outline: 'none',
