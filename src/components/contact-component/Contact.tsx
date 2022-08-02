@@ -48,7 +48,6 @@ export const Contact: React.FC<ContactProps> = ({}) => {
               />
             </InputItem>
             <InputItem>
-              {/* <label htmlFor='name'>Email</label> */}
               <input
                 type='email'
                 name='email'
@@ -66,7 +65,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
             name='message'
             id='message'
             cols={30}
-            rows={10}
+            rows={5}
             required
             placeholder='Your thoughts here'
             value={input.message}
@@ -84,15 +83,10 @@ export const Contact: React.FC<ContactProps> = ({}) => {
     </ContactWrapper>
   );
 };
-const ContactWrapper = styled('div')(({ theme }) => ({
-  // display: 'flex',
-  // justifyContent: 'center',
-  // alignItems: 'center',
-  // flexDirection: 'column',
-}));
+const ContactWrapper = styled('div')(({ theme }) => ({}));
 const ContactHeader = styled('div')(({ theme }) => ({
   color: '#000000',
-  fontSize: '2rem',
+  fontSize: '1.5rem',
   fontFamily: 'Cabin',
 }));
 const ContactForm = styled('div')(({ theme }) => ({
@@ -108,9 +102,9 @@ const ContactForm = styled('div')(({ theme }) => ({
     // },
     '& textarea': {
       marginTop: '1rem',
-      width: '41rem',
-      height: '10rem',
-      minHeight: '10rem',
+      width: '100%',
+      height: '9rem',
+      minHeight: '9rem',
       transition: 'all .2s',
       border: '1px solid #2D3748',
       color: '#000000',
@@ -121,7 +115,7 @@ const ContactForm = styled('div')(({ theme }) => ({
       fontSize: '1rem',
       resize: 'vertical',
       [theme.breakpoints.down('md')]: {
-        width: '20rem',
+        // width: '20rem',
       },
       '&:focus': {
         outline: 'none',
@@ -133,15 +127,21 @@ const ContactForm = styled('div')(({ theme }) => ({
 }));
 const ContactFormInput = styled('div')(({ theme }) => ({
   display: 'flex',
+  justifyContent: 'space-between',
+  width: '100%',
   gap: '1rem',
   marginTop: '1rem',
   [theme.breakpoints.down('md')]: {
     display: 'block',
   },
+
+  '&>*':{
+    width: '100%'
+  }
 }));
 const InputItem = styled('div')(({ theme }) => ({
   '& input': {
-    width: '20rem',
+    width: '100%',
     height: '3rem',
     border: '1px solid #2D3748',
     transition: 'all .2s',
