@@ -16,20 +16,35 @@ const Home: NextPage = () => {
         </ImageWrapper>
         <Description>
           <Name>
-            <h1>Hi, I'm Michael</h1>
-            <a href='https://devmike.wtf' target='_blank'>
+            <h1>Hi, I am Michael</h1>
+            <a
+              href='https://devmike.wtf'
+              target='_blank'
+              
+              rel='noreferrer'
+            >
               Developer portfolio <ArrowRightAltIcon />
             </a>
           </Name>
           <Details>
             <h4>WTH am I?</h4>
             <p>
-              I am {' '}
-              <a href='https://twitter.com/devmikellc' target='_blank'>
+              I am{' '}
+              <a
+                href='https://twitter.com/devmikellc'
+                target='_blank'
+                
+                rel='noreferrer'
+              >
                 @devmikellc
               </a>{' '}
               and{' '}
-              <a href='https://github.com/super-devmike' target='_blank'>
+              <a
+                href='https://github.com/super-devmike'
+                target='_blank'
+                
+                rel='noreferrer'
+              >
                 @super-devmike
               </a>{' '}
               a full stack web and application developer from Abuja, Nigeria.
@@ -38,17 +53,32 @@ const Home: NextPage = () => {
               I am a self-taught developer with a passion for learning and
               building things. I share everything I learn and know about making
               awesome things at my developer portfolio{' '}
-              <a href='https://devmike.wtf' target='_blank'>
+              <a
+                href='https://devmike.wtf'
+                target='_blank'
+                
+                rel='noreferrer'
+              >
                 devmike.wtf.
               </a>
             </p>
             <p>
               You can check my projects{' '}
-              <a href='https://devmike.wtf/projects' target='_blank'>
+              <a
+                href='https://devmike.wtf/projects'
+                target='_blank'
+                
+                rel='noreferrer'
+              >
                 here
               </a>{' '}
               and articles{' '}
-              <a href='https://devmike.wtf/articles' target='_blank'>
+              <a
+                href='https://devmike.wtf/articles'
+                target='_blank'
+                
+                rel='noreferrer'
+              >
                 here.
               </a>
             </p>
@@ -58,6 +88,8 @@ const Home: NextPage = () => {
               <a
                 href='https://assets.mikeadebisi.com/hire/michael_adebisi_resume.pdf'
                 target='_blank'
+                
+                rel='noreferrer'
               >
                 here
               </a>
