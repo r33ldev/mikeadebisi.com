@@ -3,6 +3,7 @@ import { styled } from '@mui/system';
 import React, { useState } from 'react';
 import { NEW_CONTACT } from '../../../graphql/mutations/mutations';
 import { sleep } from '../../utils/utility';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 interface ContactProps {}
 
@@ -11,29 +12,70 @@ export const Contact: React.FC<ContactProps> = ({}) => {
   const [input, setInput] = useState({ name: '', email: '', message: '' });
   const [contactData, setContactData] = useState({});
   const [submitted, setSubmitted] = useState(false);
-
+  const recaptchaRef = React.useRef<ReCAPTCHA>(null);
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitted(true);
-    const { data } = await newContact({
-      variables: {
-        input,
-      },
-    });
 
-    await sleep(2000);
-    setSubmitted(false);
-    setInput({ name: '', email: '', message: '' });
-    if (data) setContactData(data);
-    await sleep(10000);
-    setContactData({});
-    console.log('done');
+    if (recaptchaRef.current) {
+      recaptchaRef!.current!.execute();
+    }
   }
+  const siteKey = process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY as string;
+  const onReCAPTCHAChange = async (captchaCode: any) => {
+    if (!captchaCode) {
+      return;
+    }
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify({ captcha: captchaCode }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const { data } = await newContact({
+          variables: {
+            input,
+          },
+        });
+        await sleep(2000);
+        setSubmitted(false);
+        setInput({ name: '', email: '', message: '' });
+        if (data) setContactData(data);
+        await sleep(10000);
+        setContactData({});
+
+        console.log('message sent successfully');
+      } else {
+        // Else throw an error with the message returned
+        // from the API
+        const error = await response.json();
+        throw new Error(error.message);
+      }
+    } catch (error) {
+      console.error(error);
+      console.log('Something went wrong');
+    } finally {
+      if (recaptchaRef.current) recaptchaRef.current.reset();
+    }
+    if (recaptchaRef?.current) {
+      recaptchaRef.current.reset();
+    }
+  };
   return (
     <ContactWrapper>
       <ContactHeader>Talk to me</ContactHeader>
       <ContactForm>
         <form onSubmit={(e) => handleSubmit(e)}>
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            size='invisible'
+            sitekey={siteKey}
+            onChange={onReCAPTCHAChange}
+          />
           <ContactFormInput>
             <InputItem>
               {/* <label htmlFor='name'>First Name</label> */}
@@ -77,7 +119,9 @@ export const Contact: React.FC<ContactProps> = ({}) => {
               Your message is successfully sent, pls check your email
             </div>
           )}
-          <Button>{submitted ? 'sending ...' : ' Send'}</Button>
+          <Button disabled={submitted}>
+            {submitted ? 'sending ...' : ' Send'}
+          </Button>
         </form>
       </ContactForm>
     </ContactWrapper>
@@ -135,9 +179,9 @@ const ContactFormInput = styled('div')(({ theme }) => ({
     display: 'block',
   },
 
-  '&>*':{
-    width: '100%'
-  }
+  '&>*': {
+    width: '100%',
+  },
 }));
 const InputItem = styled('div')(({ theme }) => ({
   '& input': {
@@ -158,15 +202,15 @@ const InputItem = styled('div')(({ theme }) => ({
     },
   },
 }));
-const Button = styled('button')(({ theme }) => ({
+const Button = styled('button')(({ theme, disabled }) => ({
   marginTop: '1rem',
   marginBottom: '3rem',
   border: '1px solid #2D3748',
   background: '#171923',
   padding: '0.5rem 2rem',
   fontSize: '1.1rem',
-  cursor: 'pointer',
-color:'white!important',
+  cursor: `${disabled ? 'loading' : 'pointer'}`,
+  color: 'white!important',
   '&:hover': {
     background: '#2D3748',
     color: '#CBD5E0',
