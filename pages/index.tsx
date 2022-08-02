@@ -114,7 +114,7 @@ const HomeWrapper = styled('div')(({ theme }) => ({
   marginTop: ' -2rem',
   
   [theme.breakpoints.down('sm')]: {
-    margin: '2rem 3rem',
+    margin: '2rem 1rem',
     flexDirection:'column'
   },
 
