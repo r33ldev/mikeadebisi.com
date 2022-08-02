@@ -166,7 +166,7 @@ const Button = styled('button')(({ theme }) => ({
   padding: '0.5rem 2rem',
   fontSize: '1.1rem',
   cursor: 'pointer',
-
+color:'white!important',
   '&:hover': {
     background: '#2D3748',
     color: '#CBD5E0',
