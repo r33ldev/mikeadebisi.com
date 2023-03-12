@@ -47,11 +47,10 @@ const Home: NextPage = () => {
               >
                 @super-devmike
               </a>{' '}
-              a full stack web and application developer from Abuja, Nigeria.
+              a full stack web engineer and application developer from Abuja, Nigeria.
             </p>
             <p>
-              I am a self-taught developer with a passion for learning and
-              building things. I share everything I learn and know about making
+              I am a highly skilled and experienced web engineer with a passion for creating innovative and efficient code. With a background in computer science and over 3 years of experience in the industry, I have a proven track record of delivering high-quality software on time and within budget. I share everything I learn and know about making
               awesome things at my developer portfolio{' '}
               <a
                 href='https://devmike.wtf'
