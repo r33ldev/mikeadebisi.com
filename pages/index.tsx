@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     <>
       <HomeWrapper>
         <ImageWrapper>
-          <Image src={mike} height={100} width={100} />
+          <Image src={mike} height={100} width={100} alt='Michael image' />
         </ImageWrapper>
         <Description>
           <Name>
