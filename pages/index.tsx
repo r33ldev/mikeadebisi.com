@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     <>
       <HomeWrapper>
         <ImageWrapper>
-          <Image src={mike} height={100} width={100} alt='Michael image' />
+          <Image src={mike} height={100} width={100} alt="Michael image" />
         </ImageWrapper>
         <Description>
           <Name>
@@ -45,10 +45,11 @@ const Home: NextPage = () => {
               a full stack web engineer and application developer from Abuja, Nigeria.
             </p> */}
             <p>
-              I'm{" "}
+              I am 
               <a
                 href="https://www.linkedin.com/in/mikeadebisi/"
                 target="_blank"
+                rel="noreferrer"
               >
                 Michael Adebisi
               </a>
