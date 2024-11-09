@@ -17,78 +17,79 @@ const Home: NextPage = () => {
         <Description>
           <Name>
             <h1>Hi, I am Michael</h1>
-            <a
-              href='https://devmike.wtf'
-              target='_blank'
-              
-              rel='noreferrer'
-            >
+            <a href="https://devmike.wtf" target="_blank" rel="noreferrer">
               Developer portfolio <ArrowRightAltIcon />
             </a>
           </Name>
           <Details>
             <h4>WTH am I?</h4>
-            <p>
+            {/* <p>
               I am{' '}
               <a
-                href='https://twitter.com/devmikellc'
+                href='https://twitter.com/alphamikellc'
                 target='_blank'
                 
                 rel='noreferrer'
               >
-                @devmikellc
+                @alphamikellc
               </a>{' '}
               and{' '}
               <a
-                href='https://github.com/super-devmike'
+                href='https://github.com/r33ldev'
                 target='_blank'
                 
                 rel='noreferrer'
               >
-                @super-devmike
+                @r33ldev
               </a>{' '}
               a full stack web engineer and application developer from Abuja, Nigeria.
-            </p>
+            </p> */}
             <p>
-              I am a highly skilled and experienced web engineer with a passion for creating innovative and efficient code. With a background in computer science and over 3 years of experience in the industry, I have a proven track record of delivering high-quality software on time and within budget. I share everything I learn and know about making
-              awesome things at my developer portfolio{' '}
+              I'm{" "}
               <a
-                href='https://devmike.wtf'
-                target='_blank'
-                
-                rel='noreferrer'
+                href="https://www.linkedin.com/in/mikeadebisi/"
+                target="_blank"
               >
-                devmike.wtf.
+                Michael Adebisi
               </a>
+              , a Cloud Architect and Fullstack Web Engineer With over 5 years
+              of experience in cloud and fullstack web development, I specialize
+              in building scalable, high-performance applications, particularly
+              on AWS.
+              <br />
+              <br /> Throughout my career, I’ve held roles like CTO, leading
+              cross-functional teams to deliver robust systems. My expertise
+              spans backend development with Golang for distributed systems, AWS
+              cloud architecture, and full-stack capabilities, enabling
+              high-impact, scalable solutions. I’m passionate about optimizing
+              performance, scalability, and cloud efficiency.
             </p>
-            <p>
-              You can check my projects{' '}
+            {/* <p>
+              You can check my projects{" "}
               <a
-                href='https://devmike.wtf/projects'
-                target='_blank'
-                
-                rel='noreferrer'
+                href="https://devmike.wtf/projects"
+                target="_blank"
+                rel="noreferrer"
               >
                 here
-              </a>{' '}
-              and articles{' '}
+              </a>{" "}
+              and articles{" "}
               <a
-                href='https://devmike.wtf/articles'
-                target='_blank'
-                
-                rel='noreferrer'
+                href="https://devmike.wtf/articles"
+                target="_blank"
+                rel="noreferrer"
               >
                 here.
               </a>
-            </p>
+            </p> */}
             <p>
-              I am currently <small>not</small> open for full time role, but
-              feel free to check my resume{' '}
+              I am <strong>currently open </strong>for full time role, feel free
+              to check my resume{" "}
               <a
-                href='https://assets.mikeadebisi.com/hire/michael_adebisi_resume.pdf'
-                target='_blank'
-                
-                rel='noreferrer'
+                href="https://docs.google.com/document/d/1z6p8demKM-rslYWoD_pd4BTf8Tqx7yWePF2m81X8lM8/edit?usp=sharing"
+                // href='/hire/resume/michael_adebisi_resume.pdf'
+                target="_blank"
+                rel="noreferrer"
               >
                 here
               </a>

@@ -2,7 +2,8 @@ import { styled } from '@mui/system';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
-import logo from '../../../public/brand/logo.png';
+import mike from "../../../public/mike.jpeg";
+
 interface HeaderProps {
   title?: string;
 }
@@ -19,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <HeaderWrapper>
       <LogoWrapper onClick={() => router.push('/')}>
-        <Image src={logo} alt='mikeadebisi.com' height={40} width={40} />
+        <Image src={mike} alt='mikeadebisi.com' height={40} width={40} />
       </LogoWrapper>
       {/* <HeaderLinks> */}
         {/* {LINKS.map((link) => (
@@ -47,7 +48,8 @@ const HeaderWrapper = styled('div')(({ theme }) => ({
 const LogoWrapper = styled('div')(({ theme }) => ({
   cursor: 'pointer',
   '& img': {
-    height: '60px',
+    height: '50px',
+    borderRadius:'50%'
   },
 }));
 const HeaderLinks = styled('div')(({ theme }) => ({

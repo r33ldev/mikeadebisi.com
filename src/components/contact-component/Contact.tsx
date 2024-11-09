@@ -21,7 +21,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
       recaptchaRef!.current!.execute();
     }
   }
-  const siteKey = process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY as string;
+  const siteKey = process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY || 'theykey' as string;
   const onReCAPTCHAChange = async (captchaCode: any) => {
     if (!captchaCode) {
       return;
@@ -109,7 +109,7 @@ export const Contact: React.FC<ContactProps> = ({}) => {
             cols={30}
             rows={5}
             required
-            placeholder='Your thoughts here'
+            placeholder='Your message here'
             value={input.message}
             onChange={(e) => setInput({ ...input, message: e.target.value })}
           />

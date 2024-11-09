@@ -18,10 +18,10 @@ export default function MyApp(props: AppProps) {
         <Provider store={store}>
           <Head>
             <title>
-              Michael E Adebisi - Software Engineer, Lover of Everything
+              Michael E Adebisi - Software Engineer and Cloud Architect, Lover of Everything
               Exceptional
             </title>
-            <link href='/favicon.ico' rel='icon' />
+            <link href='/mike.jpeg' rel='icon' />
             <meta
               content='minimum-scale=1, initial-scale=1, width=device-width'
               name='viewport'
