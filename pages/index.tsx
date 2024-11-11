@@ -45,7 +45,7 @@ const Home: NextPage = () => {
               a full stack web engineer and application developer from Abuja, Nigeria.
             </p> */}
             <p>
-              I am 
+              I am {' '}
               <a
                 href="https://www.linkedin.com/in/mikeadebisi/"
                 target="_blank"
@@ -55,12 +55,11 @@ const Home: NextPage = () => {
               </a>
               , a Cloud Architect and Fullstack Web Engineer With over 5 years
               of experience in cloud and fullstack web development, I specialize
-              in building scalable, high-performance applications, particularly
-              on AWS.
+              in building scalable, high-performance applications. 
               <br />
               <br /> Throughout my career, I’ve held roles like CTO, leading
               cross-functional teams to deliver robust systems. My expertise
-              spans backend development with Golang for distributed systems, AWS
+              spans backend development with multiple technologies, AWS
               cloud architecture, and full-stack capabilities, enabling
               high-impact, scalable solutions. I’m passionate about optimizing
               performance, scalability, and cloud efficiency.
